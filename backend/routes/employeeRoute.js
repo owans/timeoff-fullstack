@@ -4,8 +4,7 @@ const bcrypt = require('bcrypt');
 const EmployeeModel = require('../models/employeemodel');
 const AuthMiddleware = require('../middleware/auth');
 const router = express.Router();
-
-const SECRET = "TIM3OFF@INC";
+const env = require("../env");
 
 //create employee profile
 router.post('/', async function(req, res){
@@ -20,7 +19,7 @@ router.post('/', async function(req, res){
 
         delete result.password;
 
-        const token = jwt.sign({id: User.id}, SECRET, {expiresIn: '1hr'})
+        const token = jwt.sign({id: User.id}, env.jwt_secret, {expiresIn: '1hr'})
 
         res.status(200).json({
             status: 'Success',
@@ -72,7 +71,7 @@ router.post('/login', async function(req, res){
             {status: 'error', 
             message: "Invalid login details"});
 
-            const token = jwt.sign({id: user.id}, SECRET);
+            const token = jwt.sign({id: user.id}, env.jwt_secret);
 
         res.json({status: "Success", data: { token } });
 

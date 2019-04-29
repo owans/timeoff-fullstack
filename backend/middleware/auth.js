@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
-
-const SECRET = "TIM3OFF@INC";
+const env = require("../env");
 
 module.exports = function(req, res, next){
     try{
@@ -13,7 +12,7 @@ module.exports = function(req, res, next){
 
         const token = authHeader.split(" ")[1];
 
-        const tokenData = jwt.verify(token, SECRET);
+        const tokenData = jwt.verify(token, env.jwt_secret);
 
         req.user = tokenData.id;
 
