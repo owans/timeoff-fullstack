@@ -16,6 +16,12 @@ mongoose.connect(env.mongodb_url).then(()=>{
 
 app.use(cors());
 
+//logger middleware
+app.use((req, res,next) => {
+    console.log(`[${new Date().toTimeString}]: ${req.method} ${req.url}`)
+    next();
+})
+
 //add middlewares for passing json and url encoded and populate req.body
 app.use(express.urlencoded({extended: false}));
 
