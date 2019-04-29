@@ -8,7 +8,7 @@ const env = require("./env");
 const app = express();
 
 //connect to mongodb instance
-mongoose.connect(env.mongodb_url).then(()=>{
+mongoose.connect(env.mongodb_url, {useNewUrlParser: true, useCreateIndex: true}).then(()=>{
     console.log('Succesfully connected to mongodb');
 }).catch((err)=>{
     console.log('An error occurred while trying to connect to the db', err);
