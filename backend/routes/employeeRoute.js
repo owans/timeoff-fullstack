@@ -27,12 +27,14 @@ router.post('/', async function(req, res){
             data: {User: result, token}
         })
     }catch(err){
-        console.log(err);
+       
 
         res.status(500).json({
             status: 'error',
             message: "An error occured while creating your timeoff profile"
         })
+
+        console.log(err.response);
     }
 });
 

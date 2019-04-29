@@ -18,14 +18,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, "client/build")));
-
 app.use('/user', EmployeeRoute);
-
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname,"/client/build/index.html"));
-})
-
 
 app.listen(process.env.port || 5000).on('listening', () =>{
     console.log('💘 app is listening on 5000');

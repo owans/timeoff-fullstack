@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
 const EmployeeSchema = new mongoose.Schema({
-    company_name:{
+    companyName:{
         type: String,
         required: true
     },
 
-    first_name:{
+    firstName:{
         type: String,
         required: true
     },
 
-    last_name:{
+    lastName:{
         type: String,
         required: true
     },
@@ -19,10 +19,6 @@ const EmployeeSchema = new mongoose.Schema({
     dob:{
         type: Date,
         required: true
-    },
-
-    age:{
-        type: Number
     },
 
     department:{
@@ -37,12 +33,12 @@ const EmployeeSchema = new mongoose.Schema({
 
     country:{
         type: String,
-        enum: ['Nigeria', 'Ghana'],
+        
     },
 
     timezone:{
         type: String,
-        enum: ['West Africa', "UTC+1"],
+
     },
 
     email:{
