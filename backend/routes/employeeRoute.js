@@ -43,6 +43,7 @@ router.get('/dashboard', AuthMiddleware, async function(req, res){
         const user = await EmployeeModel.findById(req.user);
 
         res.json({status: 'Success', data: user});
+        
     }catch(err){
         console.log(err);
 
