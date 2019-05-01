@@ -7,7 +7,7 @@ const router = express.Router();
 const env = require("../env");
 
 //create employee profile
-router.post('/', async function(req, res){
+router.post('/signup', async function(req, res){
     try{
         //hash password using bcrypt
         req.body.password = await bcrypt.hash(req.body.password, 10);
@@ -26,8 +26,6 @@ router.post('/', async function(req, res){
             data: {User: result, token}
         })
     }catch(err){
-       
-
         res.status(500).json({
             status: 'error',
             message: "An error occured while creating your timeoff profile"
@@ -43,7 +41,7 @@ router.get('/dashboard', AuthMiddleware, async function(req, res){
         const user = await EmployeeModel.findById(req.user);
 
         res.json({status: 'Success', data: user});
-        
+
     }catch(err){
         console.log(err);
 
