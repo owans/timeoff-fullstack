@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require("dotenv").config();
 const EmployeeRoute = require('./routes/employeeRoute');
+const RequestRoute = require("./routes/requestroute")
 const env = require("./env");
 
 const app = express();
@@ -28,6 +29,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 app.use('/user', EmployeeRoute);
+
+app.use('/request', RequestRoute);
 
 app.listen(env.port).on('listening', () =>{
     console.log('💘 app is listening on ' + env.port);

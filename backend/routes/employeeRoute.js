@@ -19,7 +19,7 @@ router.post('/signup', async function(req, res){
 
         delete result.password;
 
-        const token = jwt.sign({id: User.id}, env.jwt_secret, {expiresIn: '1hr'})
+        const token = jwt.sign({id: User.id}, env.jwt_secret, {expiresIn: '1h'})
 
         res.status(200).json({
             status: 'Success',
