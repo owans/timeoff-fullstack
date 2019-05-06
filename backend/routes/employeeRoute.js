@@ -83,7 +83,7 @@ router.post('/login', async function(req, res){
 })
 
 //get all employees
-router.get('', async function(req, res){
+router.get('/', async function(req, res){
     
     try{
         const search = req.query.gender ? {gender: req.query.gender} : {};

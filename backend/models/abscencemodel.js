@@ -6,15 +6,15 @@ const RequestSchema = new mongoose.Schema({
     required: true
   },
   startdate: {
-    type: Date,
+    type: String,
     required: true
   },
   enddate: {
-    type: Date,
+    type: String,
     required: true
   },
   totaldays: {
-    type: Number,
+    type: String,
     required: true
   },
   requestmessage: {
